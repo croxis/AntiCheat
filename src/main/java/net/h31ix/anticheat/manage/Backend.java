@@ -244,86 +244,46 @@ public class Backend
     public void garbageClean(Player player)
     {
         String pN = player.getName();
-        if (droppedItem.contains(pN))
-            droppedItem.remove(pN);
-        if (movingExempt.contains(pN))
-            movingExempt.remove(pN);
-        if (brokenBlock.contains(pN))
-            brokenBlock.remove(pN);
-        if (placedBlock.contains(pN))
-            placedBlock.remove(pN);
-        if (bowWindUp.contains(pN))
-            bowWindUp.remove(pN);
-        if (startEat.contains(pN))
-            startEat.remove(pN);
-        if (healed.contains(pN))
-            healed.remove(pN);
-        if (sprinted.contains(pN))
-            sprinted.remove(pN);
-        if (isInWater.contains(pN))
-            isInWater.remove(pN);
-        if (isInWaterCache.contains(pN))
-            isInWaterCache.remove(pN);
-        if (instantBreakExempt.contains(pN))
-            instantBreakExempt.remove(pN);
-        if (isAscending.contains(pN))
-            isAscending.remove(pN);
-        if (trackingProjectiles.contains(pN))
-            trackingProjectiles.remove(pN);
-        if (velocitizing.contains(pN))
-            velocitizing.remove(pN);
-        if (interacting.contains(pN))
-            interacting.remove(pN);
-        if (ascensionCount.containsKey(pN))
-            ascensionCount.remove(pN);
-        if (oldMessage.containsKey(pN))
-            oldMessage.remove(pN);
-        if (lastMessage.containsKey(pN))
-            lastMessage.remove(pN);
-        if (flightViolation.containsKey(pN))
-            flightViolation.remove(pN);
-        if (chatLevel.containsKey(pN))
-            chatLevel.remove(pN);
-        if (chatKicks.containsKey(pN))
-            chatKicks.remove(pN);
-        if (nofallViolation.containsKey(pN))
-            nofallViolation.remove(pN);
-        if (fastBreakViolation.containsKey(pN))
-            fastBreakViolation.remove(pN);
-        if (yAxisViolations.containsKey(pN))
-            yAxisViolations.remove(pN);
-        if (yAxisLastViolation.containsKey(pN))
-            yAxisLastViolation.remove(pN);
-        if (lastYcoord.containsKey(pN))
-            lastYcoord.remove(pN);
-        if (lastYtime.containsKey(pN))
-            lastYtime.remove(pN);
-        if (blocksBroken.containsKey(pN))
-            blocksBroken.remove(pN);
-        if (lastBlockBroken.containsKey(pN))
-            lastBlockBroken.remove(pN);
-        if (fastPlaceViolation.containsKey(pN))
-            fastPlaceViolation.remove(pN);
-        if (lastZeroHitPlace.containsKey(pN))
-            lastZeroHitPlace.remove(pN);
-        if (lastBlockPlaced.containsKey(pN))
-            lastBlockPlaced.remove(pN);
-        if (lastBlockPlaceTime.containsKey(pN))
-            lastBlockPlaceTime.remove(pN);
-        if (blockPunches.containsKey(pN))
-            blockPunches.remove(pN);
-        if (waterAscensionViolation.containsKey(pN))
-            waterAscensionViolation.remove(pN);
-        if (waterSpeedViolation.containsKey(pN))
-            waterSpeedViolation.remove(pN);
-        if (projectilesShot.containsKey(pN))
-            projectilesShot.remove(pN);
-        if (velocitized.containsKey(pN))
-            velocitized.remove(pN);
-        if (velocitytrack.containsKey(pN))
-            velocitytrack.remove(pN);
-        if (animated.containsKey(pN))
-            animated.remove(pN);
+        droppedItem.remove(pN);
+        movingExempt.remove(pN);
+        brokenBlock.remove(pN);
+        placedBlock.remove(pN);
+        bowWindUp.remove(pN);
+        startEat.remove(pN);
+        healed.remove(pN);
+        sprinted.remove(pN);
+        isInWater.remove(pN);
+        isInWaterCache.remove(pN);
+        instantBreakExempt.remove(pN);
+        isAscending.remove(pN);
+        trackingProjectiles.remove(pN);
+        velocitizing.remove(pN);
+        interacting.remove(pN);
+        ascensionCount.remove(pN);
+        oldMessage.remove(pN);
+        lastMessage.remove(pN);
+        flightViolation.remove(pN);
+        chatLevel.remove(pN);
+        chatKicks.remove(pN);
+        nofallViolation.remove(pN);
+        fastBreakViolation.remove(pN);
+        yAxisViolations.remove(pN);
+        yAxisLastViolation.remove(pN);
+        lastYcoord.remove(pN);
+        lastYtime.remove(pN);
+        blocksBroken.remove(pN);
+        lastBlockBroken.remove(pN);
+        fastPlaceViolation.remove(pN);
+        lastZeroHitPlace.remove(pN);
+        lastBlockPlaced.remove(pN);
+        lastBlockPlaceTime.remove(pN);
+        blockPunches.remove(pN);
+        waterAscensionViolation.remove(pN);
+        waterSpeedViolation.remove(pN);
+        projectilesShot.remove(pN);
+        velocitized.remove(pN);
+        velocitytrack.remove(pN);
+        animated.remove(pN);
     }
 
     public boolean checkLongReachBlock(Player player, double x, double y, double z)
@@ -443,54 +403,9 @@ public class Backend
 
     public boolean checkVisuals(Player player, Block targetBlock, Block playerClick)
     {
-        /*if (isInteracting(player) || playerClick.isLiquid())
-        {
-            return false;
-        }*/
         if (!Utilities.isInteractable(targetBlock.getType()))
         {
             return false;
-        }
-
-        //trapdoor fix
-        if (playerClick.getType() == Material.TRAP_DOOR)
-        {
-            Location x1 = new Location(targetBlock.getWorld(), playerClick.getX() - 1, playerClick.getY(), playerClick.getZ());
-            Location x2 = new Location(targetBlock.getWorld(), playerClick.getX() + 1, playerClick.getY(), playerClick.getZ());
-            Location y1 = new Location(targetBlock.getWorld(), playerClick.getX(), playerClick.getY() - 1, playerClick.getZ());
-            Location y2 = new Location(targetBlock.getWorld(), playerClick.getX(), playerClick.getY() + 1, playerClick.getZ());
-            Location z1 = new Location(targetBlock.getWorld(), playerClick.getX(), playerClick.getY(), playerClick.getZ() - 1);
-            Location z2 = new Location(targetBlock.getWorld(), playerClick.getX(), playerClick.getY(), playerClick.getZ() + 1);
-            if (x1.equals(targetBlock.getLocation()) || x2.equals(targetBlock.getLocation()) || y1.equals(targetBlock.getLocation()) || y2.equals(targetBlock.getLocation()) || z1.equals(targetBlock.getLocation()) || z2.equals(targetBlock.getLocation()))
-            {
-                String dir = Utilities.getCardinalDirection(player);
-                int minimum = 0;
-                if (dir.equalsIgnoreCase("E"))
-                {
-                    minimum = 0;
-                }
-
-                if (dir.equalsIgnoreCase("W"))
-                {
-                    minimum = 1;
-                }
-
-                if (dir.equalsIgnoreCase("N"))
-                {
-                    minimum = 2;
-                }
-
-                if (dir.equalsIgnoreCase("S"))
-                {
-                    minimum = 3;
-                }
-
-                if ((int) playerClick.getData() == minimum)
-                    return true; // they have to be hacking here.
-
-                if ((int) playerClick.getData() == minimum + 4 && (playerClick.getLocation().distance(player.getLocation())) < 2)
-                    return false; // couldn't be hacking.
-            }
         }
 
         double x = targetBlock.getX() - playerClick.getX() * ((targetBlock.getX() - playerClick.getX() * 1) < 0 ? -1 : 1);
@@ -705,7 +620,7 @@ public class Backend
     public void logAscension(Player player, double y1, double y2)
     {
         String name = player.getName();
-        if (y1 < y2)
+        if (y1 < y2 && !isAscending.contains(name))
         {
             isAscending.add(name);
         }
@@ -1163,7 +1078,10 @@ public class Backend
     @SuppressWarnings("unchecked")
     private void logEvent(@SuppressWarnings("rawtypes") final List list, final Player player, long time)
     {
-        list.add(player.getName());
+        if(!list.contains(player.getName()))
+        {
+            list.add(player.getName());
+        }
         micromanage.getPlugin().getServer().getScheduler().scheduleSyncDelayedTask(micromanage.getPlugin(), new Runnable()
         {
             @Override
@@ -1177,7 +1095,10 @@ public class Backend
     @SuppressWarnings("unchecked")
     private void logEvent(@SuppressWarnings("rawtypes") final Map map, final Player player, final Object obj, long time)
     {
-        map.put(player.getName(), obj);
+        if(!map.containsKey(player.getName()))
+        {        
+            map.put(player.getName(), obj);
+        }
         micromanage.getPlugin().getServer().getScheduler().scheduleSyncDelayedTask(micromanage.getPlugin(), new Runnable()
         {
             @Override
