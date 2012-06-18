@@ -14,5 +14,10 @@ public class ACPlayer
         bukkitplayer = player;
         physdata = new PhysicalData(player);
     }
+    
+    public PhysicalData getPhysicalData()
+    {
+        return physdata;
+    }
 
 }

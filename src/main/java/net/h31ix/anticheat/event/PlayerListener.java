@@ -19,6 +19,8 @@
 package net.h31ix.anticheat.event;
 
 import net.h31ix.anticheat.Anticheat;
+import net.h31ix.anticheat.checks.ACPlayer;
+import net.h31ix.anticheat.checks.physical.ExampleCheck;
 import net.h31ix.anticheat.manage.Backend;
 import net.h31ix.anticheat.manage.CheckManager;
 import net.h31ix.anticheat.manage.CheckType;
@@ -136,6 +138,9 @@ public class PlayerListener extends EventListener
     @EventHandler
     public void onPlayerKick(PlayerKickEvent event)
     {
+        // Start 2.0
+        CheckManager.playerlist.remove(event.getPlayer());
+        // End 2.0
         backend.clearChatLevel(event.getPlayer());
         backend.garbageClean(event.getPlayer());
     }
@@ -143,6 +148,9 @@ public class PlayerListener extends EventListener
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event)
     {
+        // Start 2.0
+        CheckManager.playerlist.remove(event.getPlayer());
+        // End 2.0
         backend.garbageClean(event.getPlayer());
     }
 
@@ -247,6 +255,12 @@ public class PlayerListener extends EventListener
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         Player player = event.getPlayer();
+        
+        // Start 2.0
+        ACPlayer acplayer = new ACPlayer(player);
+        CheckManager.playerlist.put(player.getName(), acplayer);
+        // End 2.0
+        
         String section = "\u00a7";
         if (checkManager.willCheck(player, CheckType.ZOMBE_FLY))
         {
@@ -271,6 +285,14 @@ public class PlayerListener extends EventListener
     public void checkExploit(PlayerMoveEvent event)
     {
         Player player = event.getPlayer();
+        
+        // Start 2.0
+        ExampleCheck example = new ExampleCheck(player); //TODO: Make it so an entire category of checks are done.
+        if(!example.check() && example.willCheck()) {
+            event.setTo(event.getFrom());
+        }
+        // End 2.0
+        
         Location from = event.getFrom();
         Location to = event.getTo();
         Distance distance = new Distance(from, to);

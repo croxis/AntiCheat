@@ -21,7 +21,12 @@ package net.h31ix.anticheat.manage;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import net.h31ix.anticheat.checks.ACPlayer;
+
 import org.bukkit.entity.Player;
 
 /**
@@ -34,6 +39,7 @@ public class CheckManager
 {
     private AnticheatManager manager = null;
     private static List<CheckType> checkIgnoreList = new ArrayList<CheckType>();
+    public static Map<String, ACPlayer> playerlist = new HashMap<String, ACPlayer>();
     private static Multimap<String, CheckType> exemptList = ArrayListMultimap.create();
     private static int disabled = 0;
     private static int exempt = 0;

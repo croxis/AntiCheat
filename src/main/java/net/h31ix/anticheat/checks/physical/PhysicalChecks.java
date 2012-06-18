@@ -1,16 +1,21 @@
 package net.h31ix.anticheat.checks.physical;
 
-import net.h31ix.anticheat.Anticheat;
+import org.bukkit.entity.Player;
+
 import net.h31ix.anticheat.checks.Checks;
+import net.h31ix.anticheat.manage.CheckManager;
+import net.h31ix.anticheat.manage.CheckType;
 
 public class PhysicalChecks extends Checks
 {
-
-    public PhysicalChecks(Anticheat c)
+    protected PhysicalData physdata = null;
+    
+    public PhysicalChecks(Player pl)
     {
-        super(c);
+        super(pl);
+        check = CheckType.PHYSICAL;
+        type = CheckType.PHYSICAL;
+        physdata = CheckManager.playerlist.get(pl.getName()).getPhysicalData();
     }
-    
-    
 
 }
