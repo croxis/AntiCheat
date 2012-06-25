@@ -28,7 +28,6 @@ import org.bukkit.command.CommandSender;
 public class XRayTracker
 {
 
-
     public XRayTracker()
     {
     }
