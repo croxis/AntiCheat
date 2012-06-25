@@ -43,36 +43,7 @@ public class XRayListener implements Listener
             String player = p.getName();
             if (checkManager.willCheck(p, CheckType.XRAY))
             {
-                Material m = event.getBlock().getType();
-                if (m == Material.DIAMOND_ORE)
-                {
-                    tracker.addDiamond(player);
-                }
-                else if (m == Material.IRON_ORE)
-                {
-                    tracker.addIron(player);
-                }
-                else if (m == Material.GOLD_ORE)
-                {
-                    tracker.addGold(player);
-                }
-                else if (m == Material.LAPIS_ORE)
-                {
-                    tracker.addLapis(player);
-                }
-                else if (m == Material.REDSTONE_ORE)
-                {
-                    tracker.addRedstone(player);
-                }
-                else if (m == Material.GOLD_ORE)
-                {
-                    tracker.addGold(player);
-                }
-                else
-                {
-                    tracker.addBlock(player);
-                }
-                tracker.addTotal(player);
+                //TODO: Add trackdata.
             }
         }
     }

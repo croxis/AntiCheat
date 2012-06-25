@@ -112,6 +112,7 @@ public class CommandHandler implements CommandExecutor
 
     public void handleXRay(CommandSender cs, String[] args)
     {
+        /*
         if (Permission.SYSTEM_XRAY.get(cs))
         {
             if (config.logXRay())
@@ -152,7 +153,7 @@ public class CommandHandler implements CommandExecutor
         else
         {
             cs.sendMessage(PERMISSIONS_ERROR);
-        }
+        } */
     }
 
     public void handleReset(CommandSender cs, String[] args)
@@ -172,7 +173,7 @@ public class CommandHandler implements CommandExecutor
                     playerManager.reset(player);
                     cs.sendMessage(player.getName() + GREEN + " has been reset to Low Level.");
                 }
-                xtracker.reset(player.getName());
+              //  xtracker.reset(player.getName());
                 cs.sendMessage(player.getName() + GREEN + "'s XRay stats have been reset.");
             }
             else if (list.size() > 1)
