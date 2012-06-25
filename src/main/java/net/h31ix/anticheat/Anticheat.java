@@ -101,15 +101,16 @@ public class Anticheat extends JavaPlugin
                     {
                         for (Player player : getServer().getOnlinePlayers())
                         {
-                           /* String name = player.getName();
-                            if (!xtracker.hasAlerted(name) && xtracker.sufficientData(name) && xtracker.hasAbnormal(name))
+                            String name = player.getName();
+                            manager.log("Checking on " + name);
+                            if (xtracker.hasAbnormal(name) && xtracker.sufficientData(name) && !xtracker.hasAlerted(player))
                             {
                                 String[] alert = new String[2];
                                 alert[0] = ChatColor.YELLOW + "[ALERT] " + ChatColor.WHITE + name + ChatColor.YELLOW + " might be using xray.";
                                 alert[1] = ChatColor.YELLOW + "[ALERT] Please check their xray stats using " + ChatColor.WHITE + "/anticheat xray " + name + ChatColor.YELLOW + ".";
                                 Utilities.alert(alert);
-                                xtracker.logAlert(name);
-                            } */ //disabled until complete.
+                                xtracker.alerted(player, true);
+                            }  //disabled until complete.
                         }
                     }
                 }, XRAY_TIME, XRAY_TIME);
