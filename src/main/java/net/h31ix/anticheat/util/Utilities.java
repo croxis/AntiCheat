@@ -35,6 +35,7 @@ public final class Utilities
     private static final List<Material> INSTANT_BREAK = new ArrayList<Material>();
     private static final List<Material> FOOD = new ArrayList<Material>();
     private static final List<Material> INTERACTABLE = new ArrayList<Material>();
+    private static final List<Material> ORE = new ArrayList<Material>();
     private static final HashSet<Byte> NOTSOLID = new HashSet<Byte>();
 
     public static void alert(String[] message)
@@ -91,6 +92,11 @@ public final class Utilities
     public static boolean isInteractable(Material m)
     {
         return INTERACTABLE.contains(m);
+    }
+    
+    public static boolean isOre(Material m)
+    {
+        return ORE.contains(m);
     }
 
     public static HashSet<Byte> getNonSolid()
@@ -213,6 +219,12 @@ public final class Utilities
         NOTSOLID.add((byte) Material.STEP.getId());
         NOTSOLID.add((byte) Material.VINE.getId());
         NOTSOLID.add((byte) Material.ENCHANTMENT_TABLE.getId());
+        ORE.add(Material.DIAMOND_ORE);
+        ORE.add(Material.IRON_ORE);
+        ORE.add(Material.GOLD_ORE);
+        ORE.add(Material.LAPIS_ORE);
+        ORE.add(Material.REDSTONE_ORE);
+        ORE.add(Material.STONE);
         FOOD.add(Material.COOKED_BEEF);
         FOOD.add(Material.COOKED_CHICKEN);
         FOOD.add(Material.COOKED_FISH);

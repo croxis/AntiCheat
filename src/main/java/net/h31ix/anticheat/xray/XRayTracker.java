@@ -23,17 +23,44 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.bukkit.ChatColor;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class XRayTracker
 {
-
+    
+    private static Map<String, XRayStats> xraytrack = new HashMap<String, XRayStats>();
+    
     public XRayTracker()
     {
     }
 
+    public void removePlayer(Player pl)
+    {
+        xraytrack.remove(pl.getName());
+    }
+    
     public boolean hasAbnormal(String player)
     {
         return false;
     }
+    
+    public void logOre(Player pl, Block ore)
+    {
+        if(xraytrack.get(pl.getName()) == null)
+        {
+            XRayStats xr = new XRayStats(pl.getName());
+            xr.logOre(ore);
+            xraytrack.put(pl.getName(), xr);
+        }
+        else
+        {
+            XRayStats xr = xraytrack.get(pl.getName());
+            xr.logOre(ore);
+        }        
+    }
+    
+    
+    
 }

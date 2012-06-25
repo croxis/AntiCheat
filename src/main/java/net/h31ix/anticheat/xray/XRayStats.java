@@ -18,13 +18,57 @@
 
 package net.h31ix.anticheat.xray;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import net.h31ix.anticheat.Anticheat;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 
 public class XRayStats
 {
+    private int MIN_BLOCKS = 25;
+    private boolean scheduled = false;
+    private boolean minedarealore = false;
+    private boolean cave = false;
+    private String player = null;
+    private Map<Material, XrayLocation> ores = null;
 
-    public XRayStats(String player)
+    public XRayStats(String pl)
     {
+        player = pl;
+        ores = new HashMap<Material, XrayLocation>();
+    }
+    
+    public String getPlayerName()
+    {
+        return player;
+    }
+
+    public void logOre(Block ore)
+    {
+        if (ore.getType() != Material.STONE)
+            minedarealore = true;
         
+        if(ores.size() < 5 && minedarealore)
+            cave = true;
+
+        ores.put(ore.getType(), new XrayLocation(ore.getLocation(), System.currentTimeMillis()));
+
+        if (ores.size() >= MIN_BLOCKS && !scheduled && minedarealore)
+        {
+            Bukkit.getScheduler().scheduleAsyncDelayedTask(Anticheat.getPlugin(), new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    
+                }
+            }, 20L);
+            scheduled = true;
+        }
     }
 }

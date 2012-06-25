@@ -20,9 +20,11 @@ package net.h31ix.anticheat.xray;
 
 import net.h31ix.anticheat.Anticheat;
 import net.h31ix.anticheat.util.Configuration;
+import net.h31ix.anticheat.util.Utilities;
 import net.h31ix.anticheat.manage.CheckManager;
 import net.h31ix.anticheat.manage.CheckType;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,10 +42,14 @@ public class XRayListener implements Listener
         if (config.logXRay())
         {
             Player p = event.getPlayer();
-            String player = p.getName();
+            Block block = event.getBlock();
             if (checkManager.willCheck(p, CheckType.XRAY))
             {
                 //TODO: Add trackdata.
+                if(Utilities.isOre(block.getType()))
+                {
+                    tracker.logOre(p, block);
+                }
             }
         }
     }
