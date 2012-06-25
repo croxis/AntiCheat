@@ -49,12 +49,12 @@ public class XRayStats
     private int stonecount = 0;
     private long lastoremined = 0L;
     private boolean xrayer = false;
-    private List<XRayLocation> ores = null;
+    private List<XRrayLocation> ores = null;
 
     public XRayStats(String pl)
     {
         player = pl;
-        ores = new CopyOnWriteArrayList<XRayLocation>();
+        ores = new CopyOnWriteArrayList<XRrayLocation>();
     }
 
     public String getPlayerName()
@@ -71,7 +71,7 @@ public class XRayStats
     {
         int g = 0;
         
-        for(XRayLocation o : ores)
+        for(XRrayLocation o : ores)
         {
             if(o.getOre().equals(m))
                 g++;
@@ -115,7 +115,7 @@ public class XRayStats
 
         Anticheat.getManager().log(cave ? "I'm in a cave! Something went wrong :(" : "I'm not in a cave :)");
 
-        ores.add(new XRayLocation(ore.getType(), ore.getLocation(), System.currentTimeMillis()));
+        ores.add(new XRrayLocation(ore.getType(), ore.getLocation(), System.currentTimeMillis()));
 
         if (ores.size() >= MIN_BLOCKS && !scheduled && minedarealore)
         {
@@ -143,7 +143,7 @@ public class XRayStats
                             double y = 0;
                             double z = 0;
                             Location lastloc = null;
-                            for (XRayLocation xl : ores)
+                            for (XRrayLocation xl : ores)
                             {
                                 Material ore = xl.getOre();
                                 Location loc = xl.getLocation();
