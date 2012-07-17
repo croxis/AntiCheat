@@ -10,6 +10,10 @@
             <id>bukkit-repo</id>
             <url>http://repo.bukkit.org/content/repositories/releases/</url>
         </repository>
+        <repository>
+        	<id>croxis</id>
+        	<url>http://repository-croxis.forge.cloudbees.com/release/</url>
+        </repository>
     </repositories>
     <build>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
