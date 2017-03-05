@@ -1,44 +1,46 @@
-author: H31IX
-database: false
-description: Prevention of hacks and other malicious tinkering on a Minecraft server.
-main: net.h31ix.anticheat.Anticheat
-name: AntiCheat
-softdepend: [AntiCheat]
+name: AntiCheatReloaded
+author: Rammelkast
+description: AntiCheatReloaded helps easily identify and block malicious users on your server.
+main: com.rammelkast.anticheatreloaded.AntiCheat
+depend: [ProtocolLib]
 startup: postworld
-url: http://H31IX.NET/
-version: ${project.version}-b${BUILD_NUMBER}
+version: ${project.build.version}
 commands:
   anticheat:
     description: Control and view info about AntiCheat
     usage: /anticheat help
     aliases: anti
 permissions:
-  anticheat.alert:
-    description: Get alerts
+  anticheat.system.notice:
+    description: See broadcasts when a player is kicked or banned for hacking
+  anticheat.system.alert:
+    description: See alerts when a player might be cheating
   anticheat.system.help:
-    description: Help access
+    description: Access the help message
   anticheat.system.report:
-    description: Reports access
+    description: Access cheat reports
   anticheat.system.spy:
-    description: Spy system access
-  anticheat.system.xray:
-    description: XRay info access
+    description: Access the spy system
   anticheat.mod:
     description: Mod helper perm
     children:
-      anticheat.alert: true
+      anticheat.system.notice: true
+      anticheat.system.alert: true
       anticheat.system.help: true
       anticheat.system.report: true
       anticheat.system.spy: true
-      anticheat.system.xray: true
   anticheat.system.log:
-    description: Log access
+    description: Access turning console logging on or off
   anticheat.system.reload:
-    description: Reload access
+    description: Access reloading the system
   anticheat.system.reset:
-    description: Reset access
+    description: Access resetting a player's cheat level
   anticheat.system.update:
-    description: Update access
+    description: Access information about whether the system is updated
+  anticheat.system.calibrate:
+    description: Access the calibration system
+  anticheat.system.debug:
+    description: Access debug reports
   anticheat.admin:
     description: Admin helper perm
     children:
@@ -47,6 +49,8 @@ permissions:
       anticheat.system.reload: true
       anticheat.system.reset: true
       anticheat.system.update: true
+      anticheat.system.calibrate: true
+      anticheat.system.debug: true
   anticheat.check.zombe.fly:
     description: Allow players to use zombe flymod
     default: false
@@ -81,7 +85,7 @@ permissions:
     description: Allow players to use auto-sneak
     default: false
   anticheat.check.speed:
-    description: Use this with anticheat.check.flyhack to allow more speed
+    description: Allow players to speed
     default: false
   anticheat.check.spider:
     description: Allow players to climb non-climbable surfaces
@@ -101,9 +105,6 @@ permissions:
   anticheat.check.forcefield:
     description: Allow players to use a forcefield
     default: false
-  anticheat.check.xray:
-    description: Allow players to bypass xray stats
-    default: false
   anticheat.check.longreach:
     description: Allow players to use longreaching hacks
     default: false
@@ -115,10 +116,19 @@ permissions:
     default: false
   anticheat.check.visual:
     description: Allow players to interact with objects out of their view
-    default: false    
+    default: false
   anticheat.check.vclip:
     description: Allow players to become slimeballs and clip down through blocks
-    default: false    
+    default: false
+  anticheat.check.fastinventory:
+    description: Allow players to use fastloot and similar inventory hacks
+    default: false
+  anticheat.check.autotool:
+    description: Allow players to use autotool to switch tools quickly
+    default: false
+  anticheat.check.fastanimation:
+    description: Allow players to attack or interact very quickly
+    default: false
   anticheat.check.exempt:
     description: Total exemption from checks
     default: false
@@ -141,9 +151,11 @@ permissions:
       anticheat.check.fasteat: true
       anticheat.check.fastheal: true
       anticheat.check.forcefield: true
-      anticheat.check.xray: true
       anticheat.check.longreach: true
       anticheat.check.projectile: true
       anticheat.check.itemspam: true
       anticheat.check.visual: true
       anticheat.check.vclip: true
+      anticheat.check.fastinventory: true
+      anticheat.check.autotool: true
+      anticheat.check.fastanimation: true

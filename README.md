@@ -1,30 +1,48 @@
-AntiCheat
+AntiCheatReloaded
 =============
+AntiCheatReloaded is a fork of the old 'AntiCheat' project.
+AntiCheat helps server admins easily identify and block malicious users by monitoring and analyzing the behaviour of their players.
 
-Stop hackers and cheaters in their tracks!
+###Want to help me out?
+First of all, i've put a lot of time and work in this project, so donations (especially in (m)BTC) are appreciated!
+My BTC address is 1JfyX6hvGUazHTtKVLaNcYaUxnyjR5HtMY
+
+Bug Reporting
+------------
+
+Issues should be filed by hitting the [issues](https://github.com/Rammelkast/AntiCheatReloaded/issues?state=open) tab above. Please make sure you search your issue before opening a new ticket.
+
+Please include the following information with your issue, this allows me to fix it quicker;
+* The `/anticheat debug` log
+* Your AntiCheatReloaded version
+* Your server software (Bukkit/Spigot/Paper/Taco) and it's version
+* When using protocollib, your protocollib version
+* If you use protocolhacks (ViaVersion etc.)
 
 Usage
 -------
-Simply drag and drop the plugin into your Plugins folder. Optional configuration and permissions are avaliable:
- 
-http://dev.bukkit.org/server-mods/anticheat/pages/configuration/
+Simply drag and drop the plugin and the ProtoclLib into your Plugins folder.
 
-http://dev.bukkit.org/server-mods/anticheat/pages/permissions/
-
-Developer stuff:
+###Hacks blocked
 -------
-API Usage: http://dev.bukkit.org/server-mods/anticheat/pages/api-documentation/
-
-Bug Reporting/Support/Questions
-------------
-
-Feel free to leave a DETAILED comment describing the problem, the steps you take to re-create the problem, the result you got, and the result you EXPECTED to get on my BukkitDev page (see below). If you do that I'll be sure to reply back and take a look at the bug.
-I'm also around a lot in IRC. Feel free to join me in #anticheat on irc.esper.net and ping me to report a game-breaking bug, or just to ask questions, get support, etc.
-
-Resources
--------
-BukkitDev --- http://dev.bukkit.org/server-mods/anticheat/
-
-Jenkins (Downloads) --- http://ci.h31ix.net/job/AntiCheat/
-
-Latest version download: http://bukget.org/api/plugin/anticheat/latest/download
+* Blink
+* Flight
+* Glide
+* Jesus
+* Step
+* Criticals
+* KillAura
+* Anti-Knockback
+* FastBow
+* FastDrop
+* Reach
+* Spider
+* Speed
+* NoFall
+* Sneak
+* vClip
+* Timer
+* FastBreak
+* FastPlace
+* Spam
+* FastEat

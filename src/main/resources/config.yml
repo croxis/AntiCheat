@@ -1,30 +1,40 @@
-#AntiCheat configuration file
-#Please report any bugs: http://dev.bukkit.org/server-mods/anticheat/
-XRay:
-  Log xray stats: true
-  Alert when xray is found: false
-
-Events: 
-  #Valid events = NONE,WARN,KICK,BAN,COMMAND[command]
-  #Use commands like so: COMMAND[ban &player 30] or COMMAND[kick &player hacking] or COMMAND[jail &player 10]
-  #&player will be replaced with player's name, and any command on your server can be used.
-  Level Medium: WARN
-  Level High: KICK
-  
-System:
-  #Turning auto-update off is a _BAD_ idea. You will no longer be protected by the latest hacks/cheats if you do so.
-  #AntiCheat will never bother you about updates if this is on, but if you turn it off you will have to manually update.
-  Auto update: true
-  Log to console: false
-  #Should AntiCheat log to files?
-  #0 = off, 1 = log when an event takes place, 2 = more detailed logs, 3 = most detailed logs
-  File log level: 1
-  Verbose startup: false
-  #Should AntiCheat block when players spam messages in chat?
-  Block chat spam: true
-  #Should AntiCheat block when players spam commands in chat?
-  Block command spam: true
-  #If silent mode is on, players will not be stopped when they try to hack,
-  #and AntiCheat will do everything possible to keep them in the dark, but their level will still raise,
-  #alerts will still be sent to console and to admins online, and events will still take place.
-  Silent mode: false
+# AntiCheatReloaded configuration file
+spam:
+  chat:
+    # Should AntiCheatReloaded block players spamming messages in chat?
+    block-speed: true
+    block-repetition: true
+    # Valid actions = NONE,KICK,BAN,COMMAND[command]
+    action-one: KICK
+    action-two: BAN
+  # Should AntiCheatReloaded block players spamming commands in chat?
+  command:
+    block-speed: true
+    block-repetition: true
+    # Valid actions = NONE,KICK,BAN,COMMAND[command]
+    action-one: KICK
+    action-two: BAN
+system:
+  # Turning auto-update off is a _BAD_ idea. You will no longer be protected by the latest hacks/cheats if you do so, and will have to update manually.
+  auto-update: true
+  # Should AntiCheatReloaded log ALL failed checks to console?
+  log-to-console: false
+  # Should AntiCheatReloaded log to file?
+  log-to-file: true
+  # Should AntiCheatReloaded display extra debug information when starting?
+  verbose-startup: false
+  # If silent mode is on, players will not be stopped when they try to hack, and AntiCheatReloaded will do everything possible to keep them unaware of their rising hack level.
+  # However, alerts will still be sent to console and to admins online, and events will still take place.
+  silent-mode: false
+  # Should ops be exempt from all checks?
+  exempt-op: false
+  # Should AntiCheatReloaded track plugins in its own registered events?
+  event-chains: true
+  # Should Enterprise options be enabled? Only set this to true if you're an advanced user.
+  enterprise: false
+# Use /AntiCheatReloaded check for a list of valid checks
+disabled-checks:
+- EXAMPLE_CHECK
+disable-in:
+- example-world
+- example-world-2

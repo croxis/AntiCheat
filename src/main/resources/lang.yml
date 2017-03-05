@@ -1,18 +1,17 @@
-alert:
-  medium_alert:
-  - '[ALERT] &player has entered the MEDIUM hack level.'
-  - '[ALERT] This means they may be using a hacked client or may have a bad connection!'
-  high_alert:
-  - '[ALERT] &player has entered the HIGH hack level.'
-  - '[ALERT] This means they probably are hacking or are lagging out!' 
-warning:
-  player_warning:
-  - '[AntiCheat] Hacks are not allowed on this server.'
-  - '[AntiCheat] If you continue to use hacks, action will be taken.'
-ban:
-  ban_reason: 'Banned by AntiCheat'
-  ban_broadcast: '[AntiCheat] &player was banned for hacking.'
-kick:
-  kick_reason: 'Kicked by AntiCheat'
-  kick_broadcast: '[AntiCheat] &player was kicked for hacking.'  
-    
+# AntiCheatReloaded language file
+ALERT:
+- '&player has just entered the &group hack group.'
+- '&player''s last failed check was: &check.'
+- 'Type ''/anticheat report &player'' for more information.'
+WARNING:
+- '[AntiCheatReloaded] Hacking is not permitted.'
+- '[AntiCheatReloaded] If you continue to hack, action will be taken.'
+BAN_REASON: 'Banned by AntiCheatReloaded'
+BAN_BROADCAST: '&player was banned for hacking.'
+KICK_REASON: 'Kicked by AntiCheatReloaded'
+KICK_BROADCAST: '&player was kicked for hacking.'
+SPAM_WARNING: 'Stop spamming the server or you will be kicked!'
+SPAM_KICK_REASON: 'Kicked for spamming'
+SPAM_KICK_BROADCAST: '&player was kicked for spamming'
+SPAM_BAN_REASON: 'Banned for spamming'
+SPAM_BAN_BROADCAST: '&player was banned for spamming'
